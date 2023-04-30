@@ -1,55 +1,41 @@
-import { useState } from "react"
 import "./App.css"
+import Counter from "./modules/counter"
+import Name from "./modules/name"
+import Price from "./modules/price"
+import Description from "./modules/description"
+import { Component } from "react"
 
-function CounterButton() {
-  const [count, setCount] = useState(0);
-
-  function counter() {
-    setCount(count + 1);
+class Product extends Component {
+  constructor(props) {
+    super(props)
+    this.name = props.name
+    this.price = props.price
+    this.description = props.description
   }
 
-  return (
-    <div className="clickButton">
-      <button onClick={counter} >
-        Click
-      </button>
-      <p>{count}</p>
-    </div>
-  )
+  render() {
+    return (
+      <ul className="product">
+        <Name name={this.name} />
+        <Price price={this.price} />
+        <Description description={this.description} />
+      </ul>
+    )
+  }
 }
-
-function TemperatureButton() {
-  const [number, setNumber] = useState(0);
-
-  function PlusOne() {
-    setNumber(number + 1);
-  }
-
-  function MinusOne() {
-    setNumber(number - 1);
-  }
-
-  return (
-    <div className="clickButton">
-      <button className="tempButton">
-        {number}C<sup>o</sup>
-      </button>
-      <div>
-        <button onClick={MinusOne}>-</button>
-        <button onClick={PlusOne}>+</button>
-      </div>
-    </div>
-  )
-}
-
 export default function MyApp() {
   return (
-    <>
-      <h1 className="hello">Hello World!!!</h1>
-      <h2>Counter</h2>
-      <CounterButton />
-      <h2>Temperature Control</h2>
-      <TemperatureButton />
-    </>
+    <div>
+      <div>
+        <h1>Counter Class Component</h1>
+        <h3> Click "+" for Plus and "-" for Minus </h3>
+        <Counter />
+      </div>
+      <hr />
+      <div>
+        <h1>Product Class Component</h1>
+        <Product name={"banabas"} price="1$" description="Fresh bananas from Ecuador" />
+      </div>
+    </div>
   )
 }
