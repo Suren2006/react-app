@@ -24,8 +24,8 @@ class Counter extends Component {
             <div className="counter">
                 <h4> {this.state.value} </h4>
                 <div>
-                    <button onClick={this.PlusFunction} className="btn">+</button>
                     <button onClick={this.MinusFunction} className="btn">-</button>
+                    <button onClick={this.PlusFunction} className="btn">+</button>
                 </div>
             </div>
         );

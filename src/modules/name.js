@@ -1,13 +1,13 @@
 import { Component } from "react";
 
 class Name extends Component {
-    constructor(props) {
-        super(props);
-        this.name = props.name
-    }
+
+
+
     render() {
+        const { name } = this.props
         return (
-            <li>Name : {this.name}</li>
+            <li>Name : {name}</li>
         )
     }
 }

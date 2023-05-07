@@ -1,15 +1,12 @@
 import { Component } from "react";
 
 class Description extends Component {
-    constructor(props) {
-        super(props);
-        this.description = props.description
-    }
 
 
     render() {
+        const { description } = this.props
         return (
-            <li>Description : {this.description}</li>
+            <li>Description : {description}</li>
         )
     }
 }
