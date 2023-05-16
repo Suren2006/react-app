@@ -7,7 +7,7 @@ class Name extends Component {
     render() {
         const { name } = this.props
         return (
-            <li>Name : {name}</li>
+            <td>{name}</td>
         )
     }
 }

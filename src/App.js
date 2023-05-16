@@ -1,39 +1,36 @@
 import "./App.css"
-import Counter from "./modules/counter"
-import Name from "./modules/name"
-import Price from "./modules/price"
-import Description from "./modules/description"
-import { Component } from "react"
-
-class Product extends Component {
+import Input from "./modules/Input"
+import Product from "./modules/Product"
 
 
-  render() {
-    const { name, price, currency, description } = this.props
-    return (
-      <ul className="product">
-        <Name name={name} />
-        <Price price={price} currency={currency} />
-        <Description description={description} />
-      </ul>
-    )
-  }
-}
+var products = (window.localStorage.length !== 0) ? JSON.parse(window.localStorage.getItem("products")) : []
 
-export default function MyApp() {
+
+export default function App() {
+
+  var product = products.map((el, index) => {
+    return <Product name={el.name} price={el.value} key={index} />
+  })
+
+
+
   return (
-    <div>
-      <div>
-        <h1>Counter Class Component</h1>
-        <h3> Click "+" for Plus and "-" for Minus </h3>
-        <Counter />
-      </div>
-      <hr />
-      <div>
-        <h1>Product Class Component</h1>
-        <Product name="Banana" price="1" currency="USD" description="Fresh bananas from Ecuador" />
-        <Product name="Car" price="2000" currency="USD" description="Black BMW" />
-      </div>
+    <div className="main">
+      <h1>Product Class Component</h1>
+      <Input products={products} />
+      <table border={1}>
+        <tbody>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
+          {product}
+        </tbody>
+      </table>
     </div>
   )
 }
+
+
+// Ունենալ 2 input, name ու price արժեքների մուտքագրման համար: 
+// Կոճակը սեղմելուց հետո, եթե արժեքները դատարկ չեն, լցնել զանգվածի մեջ և զանգվածը ցուցադրել:

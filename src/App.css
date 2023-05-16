@@ -1,27 +1,14 @@
-body {
+.main {
   display: grid;
   place-items: center;
 }
 
-.counter {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: grey;
-  border-radius: 30px;
-  padding: 20px;
+td {
+  padding: 10px;
 }
 
-.btn {
-  width: 40px;
-  height:40px;
-  background-color: black;
-  color: white;
-  border-radius: 50%;
-  border: 0;
-}
-
-.btn:first-child {
-  margin-right: 40px;
+.input-div {
+  display: grid;
+  row-gap: 10px;
+  margin-bottom: 20px;
 }

@@ -9,27 +9,27 @@ class Price extends Component {
     };
 
 
-    ChangeCurrency = () => {
-        if (this.state.currency === "USD") {
+    changeCurrency = () => {
+        if (this.state.currency === "$") {
             this.setState({
                 price: this.state.price * 400,
-                currency: "AMD"
+                currency: "֏"
             })
         }
-        if (this.state.currency === "AMD") {
+        if (this.state.currency === "֏") {
             this.setState({
                 price: this.state.price / 400,
-                currency: "USD"
+                currency: "$"
             })
         }
     }
 
     render() {
         return (
-            <div>
-                <li>Price : {this.state.price + this.state.currency} </li>
-                <button onClick={this.ChangeCurrency}> Change Currency  </button>
-            </div>
+            <td>
+                <span>{this.state.price + this.state.currency} </span>
+                <button onClick={this.changeCurrency}> Change Currency  </button>
+            </td>
         )
     }
 }
